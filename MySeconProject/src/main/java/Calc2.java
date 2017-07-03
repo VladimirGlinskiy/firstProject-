@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -20,31 +21,97 @@ import java.util.Scanner;
  * !!!Внимание!!!
  * @see <a href=http://301-1.ru/img_files/2016_04_18_12_04_53_a599bd83bce6598baaa450727aed45c9.jpg>Внимание!</>
  */
+
+
 public class Calc2 {
-    public static void main(String[] args) {
+    public static void main (String[] args){
+
+        System.out.println("For calculator press <1>, for arraycounter press <2>");
+        System.out.print("Your choice is: ");
+        Scanner scan = new Scanner(System.in);
+        String choice = scan.nextLine();
+
+        if (choice.equals("1")) {Calc2.calculator();}
+
+        else if (choice.equals("2")) {Calc2.stringArray();}
+
+        scan.close();
+    }
+
+    public static void stringArray() {
+        int step = 0;
+        int leng1 = 0;
+        int max = 0;
+        String[] strArray;
+
+        System.out.println("How many words do you have?");
+        Scanner scan = new Scanner(System.in);
+        String numberOfWords = scan.nextLine();
+
+        int intNumberOfWords = Integer.parseInt(numberOfWords);
+
+        strArray=new String[intNumberOfWords];
+
+        while( step<intNumberOfWords){
+            System.out.print("Enter word "+step+":");
+            String word = scan.nextLine();
+
+            strArray[step]=word; // присваиваем ячейке массива слово
+
+
+            int leng2 = word.length();
+            if (leng2 > leng1)    {
+                max = step;
+                leng1 = leng2;
+            }
+            step++;
+        }
+
+        System.out.println("The longest word is: "+strArray[max]);
+        System.out.println("Your Words is: "+Arrays.toString(strArray));
+
+        scan.close();
+    }
+
+
+    public static void calculator() {
         Scanner scan = new Scanner(System.in);
 
+        System.out.print("First number: ");
+        String firstNumStr = scan.nextLine();
+        float firstFloat = Float.parseFloat(firstNumStr);
 
-        System.out.println("Enter the first number:");
-        double first = scan.nextDouble();
-        //System.out.printf("%.4f", first); - заккоментил проверку
+        System.out.print("Math symbol: ");
+        String symbol = scan.nextLine();
 
-
-        System.out.println("Enter the second number:");
-        double second = scan.nextDouble();
-        //System.out.printf("%.4f", second); - заккоментил проверку
-
-
-        double sum = first+second;
-
-        System.out.printf("Sum is: %.4f", sum);
+        System.out.print("Second number: ");
+        String secondNumStr = scan.nextLine();
+        float secondFloat = Float.parseFloat(secondNumStr);
 
         scan.close();
 
-
-
-
-
+    if (symbol.equals("+")) {
+        float res = firstFloat + secondFloat;
+        System.out.print("Result: " + res);
 
     }
+        else if (symbol.equals("-")){
+        float res = firstFloat - secondFloat;
+        System.out.print("Result: " + res);
+    }
+        else if (symbol.equals("/")){
+        float res = firstFloat / secondFloat;
+        System.out.print("Result: " + res);
+    }
+        else if (symbol.equals("*")){
+        float res = firstFloat * secondFloat;
+        System.out.print("Result: " + res);
+    }
+        else {System.out.print("Please enter correct value");}
 }
+}
+
+
+
+
+
