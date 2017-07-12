@@ -22,7 +22,7 @@ import java.util.Scanner;
  * @see <a href=http://301-1.ru/img_files/2016_04_18_12_04_53_a599bd83bce6598baaa450727aed45c9.jpg>Внимание!</>
  */
 
-
+//Calc2 тоже не особо звучное название. По имени класса должно быть примерно понятно, что там может происходить
 public class Calc2 {
     public static void main (String[] args){
 
@@ -33,7 +33,7 @@ public class Calc2 {
 
         if (choice.equals("1")) {Calc2.calculator();}
 
-        else if (choice.equals("2")) {Calc2.stringArray();}
+        else if (choice.equals("2")) {Calc2.stringArray();} // а если 3 или любой другой символ?)
 
         scan.close();
     }
@@ -59,8 +59,8 @@ public class Calc2 {
             strArray[step]=word; // присваиваем ячейке массива слово
 
 
-            int leng2 = word.length();
-            if (leng2 > leng1)    {
+            int leng2 = word.length(); 
+            if (leng2 > leng1)    { //названия leng2 и leng1 ни о чем не говорят. нужно более содержательные придумать
                 max = step;
                 leng1 = leng2;
             }
@@ -73,7 +73,7 @@ public class Calc2 {
         scan.close();
     }
 
-
+// методы обычно называют глаголом. в данном случае - calculate
     public static void calculator() {
         Scanner scan = new Scanner(System.in);
 
@@ -100,7 +100,7 @@ public class Calc2 {
         System.out.print("Result: " + res);
     }
         else if (symbol.equals("/")){
-        float res = firstFloat / secondFloat;
+        float res = firstFloat / secondFloat;  //а если secondFloat = 0?
         System.out.print("Result: " + res);
     }
         else if (symbol.equals("*")){

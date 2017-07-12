@@ -6,6 +6,10 @@ import java.util.Scanner;
  * Created by Vladimir on 03.07.2017.
  */
 public class ChangerAndReplacer {
+    //все неплохо, но желательно вынести поск элементов и их смену местами в разные методы, 
+    //например getIndexOfMinPositiveElement(int[] numbersArray), getIndexOfMaxNegativeElement(int[] numbersArray), swapArrayElements(int[] array, int indexOfMax, int indexOfMin)
+    //плюс, числа должны генериться рандомно в отдельном методе, например generateArrayOfRandomIntegerNumbers(int arraySize)
+    //желательно еще проверять, не все ли числа одного знака. если одного, то нечего местами менять будет
     public static void main(String[] args) {
 
         int i= 20; // number of digits in the array
